@@ -89,10 +89,10 @@ jobs:
           EOF
           
           # 设置固件大小:
-          cat >> .config <<EOF
-          CONFIG_TARGET_KERNEL_PARTSIZE=30
-          CONFIG_TARGET_ROOTFS_PARTSIZE=400
-          EOF
+          #cat >> .config <<EOF
+          #CONFIG_TARGET_KERNEL_PARTSIZE=30
+          #CONFIG_TARGET_ROOTFS_PARTSIZE=400
+          #EOF
           
           # 科学ss:
           cat >> .config <<EOF
