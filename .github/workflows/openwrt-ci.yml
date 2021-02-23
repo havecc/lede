@@ -94,6 +94,15 @@ jobs:
           CONFIG_TARGET_ROOTFS_PARTSIZE=400
           EOF
           
+          # 科学ss:
+          cat >> .config <<EOF
+          CONFIG_PACKAGE_luci-app-ssr-plus=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
+          EOF
+          
           # LuCI主题:
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-theme-argon=y
@@ -106,14 +115,7 @@ jobs:
           CONFIG_PACKAGE_wget=y
           CONFIG_PACKAGE_opkg=y
           EOF
-          # 科学ss:
-          cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-app-ssr-plus=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
-          EOF
+
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
       - name: Make download
